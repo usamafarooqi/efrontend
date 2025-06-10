@@ -8,6 +8,7 @@ interface Product {
   name: string;
   price: number;
   description: string;
+  images?: { url: string }[];
 }
 
 export default function useProduct() {

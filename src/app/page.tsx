@@ -21,23 +21,28 @@ export default function Home() {
       <Header />
       <main className="container mx-auto p-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {products.map((product) => (
-           <Link
-           key={product.id}
-           href={`/products/${product.id}`}
-           >
-            <div key={product.id} className="border p-4 rounded-lg">
-              <img
-                src={product.imageUrl}
-                alt={product.name}
-                className="rounded-md object-cover mb-4"
-              />
+          {products.map((product) => {
+            const mainImage = product.images && product.images.length > 0
+              ? product.images[0].url
+              : product.imageUrl;
+            return (
+              <Link
+                key={product.id}
+                href={`/products/${product.id}`}
+              >
+                <div key={product.id} className="border p-4 rounded-lg">
+                  <img
+                    src={mainImage}
+                    alt={product.name}
+                    className="rounded-md object-cover mb-4 w-full h-48"
+                  />
 
-              <h3 className="text-xl font-bold">{product.name}</h3>
-              <p className="text-gray-600">Rs.{product.price}</p>
-            </div>
-           </Link>
-          ))}
+                  <h3 className="text-xl font-bold">{product.name}</h3>
+                  <p className="text-gray-600">Rs.{product.price}</p>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </main>
     </div>
