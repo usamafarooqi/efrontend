@@ -38,7 +38,7 @@ export const useAuthStore = create<AuthState>()(
 
       signup: async (name, email, password) => {
         try {
-          const response = await axios.post("auth/signup", {
+          const response = await apiClient.post("auth/signup", {
             name,
             email,
             password

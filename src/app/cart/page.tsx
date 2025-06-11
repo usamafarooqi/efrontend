@@ -62,7 +62,7 @@ const CartPage = () => {
                   <h3 className="font-semibold">{item.productId}</h3>
                   <p className="text-gray-600">Quantity: {item.quantity}</p>
                   <p className="text-sm text-gray-600">
-                    Option: {item.optionId.split(':').join(' - ')}
+                    Option: {item.optionId}
                   </p>
                 </div>
                 <div>
